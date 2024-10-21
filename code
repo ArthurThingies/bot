@@ -1,0 +1,25 @@
+import discord
+from discord.ext import commands
+import random
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bear5 ha sido activado: {bot.user}')
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Har har, soy un bot {bot.user}')
+
+@bot.command()
+async def har(ctx, count_heh = 5):
+    await ctx.send("har" * count_heh)
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot.run("MTI5NTQzMTI4MTExODY3OTA2MQ.GcuIAF.nQEIF8KK3r4d5wNYCRX6iwtqVFTYmvJ6n8X7x0")
