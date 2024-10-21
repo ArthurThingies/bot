@@ -22,4 +22,4 @@ async def har(ctx, count_heh = 5):
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot.run("MTI5NTQzMTI4MTExODY3OTA2MQ.GcuIAF.nQEIF8KK3r4d5wNYCRX6iwtqVFTYmvJ6n8X7x0")
+bot.run("token")
