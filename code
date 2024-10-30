@@ -5,6 +5,15 @@ import random
 intents = discord.Intents.default()
 intents.message_content = True
 
+img_name = ['C:/Users/USUARIO/Desktop/images/mem1.webp',
+           'C:/Users/USUARIO/Desktop/images/mem2.webp',
+           'C:/Users/USUARIO/Desktop/images/mem3.PNG'
+            ]
+
+flip_name = ['C:/Users/USUARIO/Desktop/flip/heads.webp',
+            'C:/Users/USUARIO/Desktop/flip/tails.webp'
+            ]
+
 bot = commands.Bot(command_prefix='$', intents=intents)
 
 @bot.event
@@ -13,13 +22,33 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send(f'Har har, soy un bot {bot.user}')
+    await ctx.send(f'Har har, soy un bot!')
+
+@bot.command()
+async def helpme(ctx):
+    await ctx.send(f'Estos son los comandos que se pueden usar al momento: hello, momazo, flip y har, puedes hacer que diga har las veces que quieras añadiendo un número al lado! También con momazo puedes hacer que mande una imagen, igual con flip, pero mandaré la imagen de una moneda para ver si ha salido cara o cruz! También puedes hacer que te diga hola con hello!')
 
 @bot.command()
 async def har(ctx, count_heh = 5):
     await ctx.send("har" * count_heh)
 
+@bot.command()
+async def momazo(ctx):
+    imagen = random.choice(img_name)
+    with open(imagen, 'rb') as f:
+            picture = discord.File(f)
+        # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
+@bot.command()
+async def flip(ctx):
+    imagenflip = random.choice(flip_name)
+    with open(imagenflip, 'rb') as f:
+            picture = discord.File(f)
+        # A continuación, podemos enviar este archivo como parámetro.
+    await ctx.send(file=picture)
+
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot.run("token")
+bot.run("token aqui")
